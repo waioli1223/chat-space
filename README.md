@@ -46,11 +46,11 @@ group has_many :messages
 ## user_groupテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
+|user_id|integer|null: false, foreign_key: true, |
+|group_id|integer|null: false, foreign_key: true, |
 ### Association
-user has many :groups
-group has many :users
+user has many :groups, through: :user_group
+group has many :users, through: :user_group
 
 ## messagesテーブル
 |Column|Type|Options|
