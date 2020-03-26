@@ -58,7 +58,7 @@ belongs_to :user
 |user_id|reference|null: false, false, foreign_key: true|
 |group_id|reference| null: false, false, foreign_key: true|
 |message|text||
-|image|references||
+|image|string||
 ### Association
 belongs_to :user
 belongs_to :group
