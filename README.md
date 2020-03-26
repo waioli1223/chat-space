@@ -29,22 +29,21 @@ Things you may want to cover:
 |username|string|null: false|
 |password|string|null: false|
 |e-mail_address|string|priomar_key: false, null: false|
-|texts|text||
+|message|text||
 ### Association
-belongs_to :users_groups 
+has_many :users_groups 
 has_many :groups, through: :users_groups
-has_many :messages, through: :users_groups
+has_many :messages
 
 ## groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|groupname|string|
-|texts|text||
+|name|string|null: false|
+|message|text|
 ### Association
-belongs_to :users_groups, 
+has_many :users_groups
 has_many :users, through: :users_groups
-has_many :messages, through: :users_groups
-
+has_many :messages
 
 ## users_groupsテーブル
 |Column|Type|Options|
@@ -52,15 +51,17 @@ has_many :messages, through: :users_groups
 |user_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
 ### Association
-has_many :groups
-has_many :users
+belongs_to :group
+belongs_to :user
 
 ## messagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|texts|text|null: false|
+|user_id|null: false|
+|group_id| null: false|
+|message|text|null: false|
 |images|references||
-|posttime|datetime|null: false|
+
 ### Association
-belongs_to :users
-belongs_to :groups
+belongs_to :user
+belongs_to :group
