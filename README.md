@@ -46,8 +46,8 @@ has_many :messages
 ## users_groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
+|user_id|reference|null: false, foreign_key: true|
+|group_id|reference|null: false, foreign_key: true|
 ### Association
 belongs_to :group
 belongs_to :user
@@ -55,8 +55,8 @@ belongs_to :user
 ## messagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|null: false, false, foreign_key: true|
-|group_id| null: false, false, foreign_key: true|
+|user_id|reference|null: false, false, foreign_key: true|
+|group_id|reference| null: false, false, foreign_key: true|
 |message|text||
 |image|references||
 ### Association
