@@ -26,38 +26,39 @@ Things you may want to cover:
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-username|string|null: false|
-password|string|null: false|
-e-mail_address|string|priomar_key: false, null: false|
-texts|text||
+|name|string|null: false|
+|password|string|null: false|
+|e-mail_address|string|priomar_key: false, null: false|
 ### Association
-user belongs_to :groups
-user has_many :messages
+has_many :users_groups 
+has_many :groups, through: :users_groups
+has_many :messages
 
 ## groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
-groupname|string|
-texts|text||
+|name|string|null: false|
 ### Association
-group belongs_to :users
-group has_many :messages
+has_many :users_groups
+has_many :users, through: :users_groups
+has_many :messages
 
-## user_groupテーブル
+## users_groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
+|user_id|reference|null: false, foreign_key: true|
+|group_id|reference|null: false, foreign_key: true|
 ### Association
-user has many :groups
-group has many :users
+belongs_to :group
+belongs_to :user
 
 ## messagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-texts|text|null: false|
-images|references||
-posttime|datetime|null: false|
+|user_id|reference|null: false, false, foreign_key: true|
+|group_id|reference| null: false, false, foreign_key: true|
+|message|text||
+|image|string||
 ### Association
-message belongs_to :user
-message belongs_to :group
+belongs_to :user
+belongs_to :group
