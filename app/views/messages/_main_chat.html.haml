@@ -1,0 +1,39 @@
+.main_chat 
+  .main_chat__group
+    .main_chat__group-name
+      %p test
+      .main_chat__group-name-member
+        %p Member：masa
+    .main_chat__group-edit
+      .main_chat__group-edit-btn
+        = link_to "#" do
+          Edit
+  .main_chat__list
+    .main_chat__list-first
+      .main_chat__list-first-name
+        %p masa
+      .main_chat__list-first-moment
+        %p 2019/11/20(Wed) 17:43:01
+    .main_chat__list-message
+      %p おはよう！
+    .main_chat__list-additional
+      .main_chat__list-additional-name
+        %p masa
+      .main_chat__list-additional-moment
+        %p 2019/11/20(Wed) 17:43:34
+    .main_chat__list1-message
+      %p 今日は夜から雨
+  .main_chat__message
+    .main_chat__message-box
+      .main_chat__message-box-words
+        %p type a message
+      .main_chat__message-box-image
+        .main_chat__message-box-image-icon
+          = icon('far','image')
+    .main_chat__message-send
+      .main_chat__message-send-btn
+        = link_to "#" do
+          Send
+
+
+  
