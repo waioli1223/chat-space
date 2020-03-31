@@ -5,25 +5,18 @@
         = current_user.name
       .side_bar__user-name-right
         .side_bar__user-name-right-edit
-          = link_to edit_user_path(current_user) do
+          = link_to new_group_path do
             = icon('far', 'edit')
         .seid_user-name-right-cog
-          =link_to "current_user" do
+          =link_to edit_group_path do
             = icon('fas', 'cog')
   .side_bar__group
-    .side_bar__group-name
-      %p tech::camp
-    .side_bar__group-message  
-      %p まだメッセージはありません
-  .side_bar__group
-    .side_bar__group-name
-      %p tech::expart
-    .side_bar__group-message  
-      %p まだメッセージはありません
-  .side_bar__group
-    .side_bar__group-name
-      %p tech::note
-    .side_bar__group-message  
-      %p まだメッセージはありません
-
+    - current_user.groups.each do |group|
+      .group
+        = link_to '#' do
+          .side_bar__group-name
+            = group.name
+          .side_bar__group-message
+            メッセージはまだありません。
+      
 
