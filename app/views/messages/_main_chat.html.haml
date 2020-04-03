@@ -1,13 +1,13 @@
 .main_chat 
   .main_chat__group
     .main_chat__group-name
-      %p test
+      = @group.name
       .main_chat__group-name-member
-        %p Member：masa
+        - @group.users.each do |user|
+          = user.name
     .main_chat__group-edit
       .main_chat__group-edit-btn
-        = link_to "#" do
-          Edit
+        = link_to 'Edit', edit_group_path(@group)
   .main_chat__list
     .main_chat__list-first
       .main_chat__list-first-name
@@ -22,18 +22,13 @@
       .main_chat__list-additional-moment
         %p 2019/11/20(Wed) 17:43:34
     .main_chat__list1-message
-      %p 今日は夜から雨
+      %p こんにちわ
   .main_chat__message
-    .main_chat__message-box
-      .main_chat__message-box-words
-        %p type a message
-      .main_chat__message-box-image
-        .main_chat__message-box-image-icon
-          = icon('far','image')
-    .main_chat__message-send
-      .main_chat__message-send-btn
-        = link_to "#" do
-          Send
-
-
-  
+    = form_for [@group, @message] do |f|
+      .input
+        = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+        .form__mask
+          = f.label :image, class: 'form__mask__image' do
+            = icon('fas', 'image', class: 'icon')
+            = f.file_field :image, class: 'hidden'
+      = f.submit 'Send', class: 'form__submit'
