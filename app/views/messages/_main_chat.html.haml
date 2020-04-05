@@ -8,21 +8,15 @@
     .main_chat__group-edit
       .main_chat__group-edit-btn
         = link_to 'Edit', edit_group_path(@group)
+
   .main_chat__list
-    .main_chat__list-first
-      .main_chat__list-first-name
-        %p masa
-      .main_chat__list-first-moment
-        %p 2019/11/20(Wed) 17:43:01
-    .main_chat__list-message
-      %p おはよう！
-    .main_chat__list-additional
-      .main_chat__list-additional-name
-        %p masa
-      .main_chat__list-additional-moment
-        %p 2019/11/20(Wed) 17:43:34
-    .main_chat__list1-message
-      %p こんにちわ
+    = render @messages
+   
+    -# .main_chat__list-contents
+    -#   .main_chat__list-contents-name
+    -#   .main_chat__list-contents-moment
+    -# .main_chat__list-contents-message
+
   .main_chat__message
     = form_for [@group, @message] do |f|
       .input
