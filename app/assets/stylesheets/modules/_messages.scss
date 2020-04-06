@@ -120,6 +120,7 @@
     background-color:#ffffff;
     height:100vh;
     width: calc(100vw - 300px);
+    overflow:scroll;
     &__group {
       background-color: #ffffff;
       height: 100px;
@@ -151,55 +152,46 @@
           margin-top: 28px;
           margin-right: 40px;
           line-height: 40px;
-            a:-webkit-any-link {
-              color: -webkit-link;
-              color: #38aef0;
-              cursor: pointer;
-              text-decoration: none;
-            }
+          a:-webkit-any-link {
+            color: #38aef0;
+            cursor: pointer;
+            text-decoration: none;
+          }
         } 
       }
     }
+
     &__list {
       background-color: #fafafa;
       height: calc(100% - 190px);
       width:calc(100vw - 300px);
       padding-left: 40px;
-      &-first{
-        display: flex;
-        margin-bottom: 12px;
-        padding-top: 35px; 
-        line-height: 16px;
-        &-name { 
-          font-size: 16px;
-          color: #333333;
+      overflow: scroll;
+      .message {
+        padding-bottom: 40px;
+        .upper-message {
+          display: flex;
+          margin-bottom: 10px;
+          .upper-message__user-name {
+            color: #434a54;
+            font-size: 16px;
+            font-weight: bold;
+          }
+          .upper-message__date {
+            color: #999999;
+            font-size: 12px;
+            margin-left: 10px;
+          }
         }
-        &-moment { 
-          color: #999999;
-          font-size: 12px;
-          padding-left: 5px;
+        &-lower-message {
+          margin-bottom: 10px;
+          &__content{
+            color: #434a54;
+            font-size: 14px;
+          }
         }
-      }  
-      &-additional {
-        display: flex;
-        margin-bottom: 12px;
-        line-height: 16px;
-        &-name { 
-          font-size: 16px;
-          color: #333333;
-        }
-        &-moment { 
-          color: #999999;
-          font-size: 12px;
-          padding-left: 5px;
-        }
-      }  
-      &-message {
-        color: #434A54;
-        font-size: 14px;
-        margin-bottom: 46px;
       }
-    }
+    } 
     &__message {
       height: 90px;
       padding: 20px 40px;
@@ -217,34 +209,35 @@
             color: #434a54;
             border-style: none;
           }
-          .form__mask {
-            font-size: 1.3rem;
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            .form__mask__image {
-              display: inline-block;
-              .icon {
-              }
-              .hidden {
-              display: none;
-              }
+        }
+        .form__mask {
+          font-size: 1.3rem;
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          .form__mask__image {
+            display: inline-block;
+            .icon {
+            }
+            .hidden {
+            display: none;
             }
           }
         }
-        .form__submit{
-          width: 100px;
-          height: 50px;
-          padding: 0 30px;
-          margin-left: 15px;
-          background-color: #38aef0;
-          color: white;
-          cursor: pointer;
-        }
-       }
-      }    
+      }
+      .form__submit{
+        width: 100px;
+        height: 50px;
+        padding: 0 30px;
+        margin-left: 15px;
+        background-color: #38aef0;
+        color: white;
+        cursor: pointer;
+      }
     }
-  }
+  }    
+}
+
 
 
 
