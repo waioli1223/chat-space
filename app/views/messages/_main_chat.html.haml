@@ -12,11 +12,6 @@
   .main_chat__list
     = render @messages
    
-    -# .main_chat__list-contents
-    -#   .main_chat__list-contents-name
-    -#   .main_chat__list-contents-moment
-    -# .main_chat__list-contents-message
-
   .main_chat__message
     = form_for [@group, @message] do |f|
       .input
