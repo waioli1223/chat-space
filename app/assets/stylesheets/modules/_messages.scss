@@ -165,6 +165,7 @@
       background-color: #fafafa;
       height: calc(100% - 190px);
       width:calc(100vw - 300px);
+      padding-top: 40px;
       padding-left: 40px;
       overflow: scroll;
       .message {
@@ -183,8 +184,8 @@
             margin-left: 10px;
           }
         }
-        &-lower-message {
-          margin-bottom: 10px;
+        &-lower-message { 
+          padding-bottom: 10px;
           &__content{
             color: #434a54;
             font-size: 14px;
